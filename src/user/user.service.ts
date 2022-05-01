@@ -56,16 +56,7 @@ export class UserService {
             );
         }
 
-        const { password, password_confirmation } = updateUserDto;
         const user = await this.findById(userId);
-
-        if (password != password_confirmation) {
-            throw new HttpException(
-                'Passwords do not match',
-                HttpStatus.UNPROCESSABLE_ENTITY,
-            );
-        }
-        delete updateUserDto.password_confirmation;
         Object.assign(user, updateUserDto);
         return await this.userRepository.save(user);
     }
