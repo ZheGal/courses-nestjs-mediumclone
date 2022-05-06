@@ -6,11 +6,12 @@ import ormconfig from './ormconfig';
 import { AuthMiddleware } from './user/middlewares/auth.middleware';
 import { ArticleModule } from './article/article.module';
 import { ProfileModule } from './profile/profile.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(ormconfig),
-    TagModule, UserModule, ArticleModule, ProfileModule,
+    TagModule, UserModule, ArticleModule, ProfileModule, CommentModule,
   ],
   providers: [],
 })
